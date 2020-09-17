@@ -1,10 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
-const welcomeChannelName = "테스트방2";
-const byeChannelName = "테스트방2";
-const welcomeChannelComment = "어서오세요.";
-const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('ON.');
