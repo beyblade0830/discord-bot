@@ -224,4 +224,4 @@ async function AutoMsgDelete(message, str, delay = 3000) {
 }
 
 
-client.login(token);
+client.login(token);756130092312166520
