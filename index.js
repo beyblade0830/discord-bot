@@ -74,7 +74,6 @@ client.on('message', (message) => {
     let commandList = [
       {name: 'help', desc: '도움말'},
       {name: '오케이 구글', desc: '봇 호출'},
-      {name: 'embed', desc: 'embed 예제1'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
