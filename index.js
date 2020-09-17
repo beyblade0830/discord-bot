@@ -1,10 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
+const welcomeChannelName = "테스트방2";
+const byeChannelName = "테스트방2";
+const welcomeChannelComment = "어서오세요.";
+const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('ON.');
-  client.user.setPresence({ game: { name: '오목초 관리자 봇입니다.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '오목초 관리자 봇 입나다.' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -35,16 +39,17 @@ client.on('message', (message) => {
   if(message.content == 'help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '오케이 구글', desc: '봇 호출'},
       {name: 'help', desc: '도움말'},
-      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기(개인DM으로도 나감)'},
+      {name: '오케이 구글', desc: '봇 호출'},
+      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기(개인DM으로도 감 민페기능)'},
       {name: '!청소', desc: '텍스트 지움'},
+      {name: '!초대', desc: '초대 코드 표기'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('Help of 콜라곰 BOT', helpImg)
       .setColor('#186de6')
-      .setFooter(`오목초 관리자 봇`)
+      .setFooter(`오목초 관리자`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -54,6 +59,11 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
+  } else if(message.content == '!초대코드') {
+    message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
+      .then(invite => {
+        message.channel.send(invite.url)
+      });
   }
 
   if(message.content.startsWith('!전체공지')) {
