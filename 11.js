@@ -3,10 +3,14 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
+const welcomeChannelName = "테스트2";
+const byeChannelName = "테스트2";
+const welcomeChannelComment = "어서오세요.";
+const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('ON.');
-  client.user.setPresence({ game: { name: '오목초 관리자 봇 입니다.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '오목초 관리자 봇 입니다..' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -30,8 +34,8 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ping') {
-    return message.reply('pong');
+  if(message.content == '오케이 구글') {
+    return message.reply('(띠링)네 부르셨나요');
   }
 
   if(message.content == '!si') {
@@ -65,12 +69,12 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-if(message.content == '!help') {
+  if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: 'help', desc: '도움말'},
       {name: '오케이 구글', desc: '봇 호출'},
-      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기(민페기능)'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
@@ -122,7 +126,7 @@ if(message.content == '!help') {
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 of 콜라곰 BOT')
         .setColor('#186de6')
-        .setFooter(`오목초 관리자 봇`)
+        .setFooter(`콜라곰 BOT ❤️`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -219,4 +223,4 @@ async function AutoMsgDelete(message, str, delay = 3000) {
 }
 
 
-client.login(token);755716016771694605
+client.login(token);
