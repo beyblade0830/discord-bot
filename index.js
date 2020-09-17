@@ -3,14 +3,14 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
-const welcomeChannelName = "안녕하세요";
-const byeChannelName = "안녕히가세요";
+const welcomeChannelName = "테스트2";
+const byeChannelName = "테스트2";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('ON.');
-  client.user.setPresence({ game: { name: '오목초 관리자 봇 입니다.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '오목초 관리봇 입니다.' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -43,8 +43,8 @@ client.on('message', (message) => {
     let img = 'https://cdn.discordapp.com/attachments/750520053065056379/756138813486792714/logo-1.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 콜라곰 BOT', img)
-    embed.setFooter(`오목초 관리자 봇`)
+    embed.setAuthor('server info of 오목초 관리봇', img)
+    embed.setFooter(`오목초 관리봇`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -82,9 +82,9 @@ client.on('message', (message) => {
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 콜라곰 BOT', helpImg)
+      .setAuthor('Help of 오목초 관리봇', helpImg)
       .setColor('#186de6')
-      .setFooter(`오목초 관리자 봇`)
+      .setFooter(`오목초 관리봇`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -124,9 +124,9 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 콜라곰 BOT')
+        .setAuthor('공지 of 오목초 관리봇')
         .setColor('#186de6')
-        .setFooter(`오목초 관리자 봇`)
+        .setFooter(`오목초 관리봇`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
