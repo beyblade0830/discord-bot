@@ -1,1 +1,1 @@
-wocker: node 11.(1).js
+wocker: node index.js
