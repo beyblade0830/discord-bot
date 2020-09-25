@@ -38,7 +38,7 @@ client.on('message', (message) => {
     return message.reply('(띠링)네 부르셨나요.');
   }
 
-  if(message.content == '서버정보') {
+  if(message.content == '!서버정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/750520053065056379/756138813486792714/logo-1.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
