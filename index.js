@@ -73,13 +73,12 @@ client.on('message', (message) => {
   if(message.content == '도움말') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
+      {name: '본 명령어들은 관리자 권한이 있어야만 사용이 가능합니다.', desc''},
       {name: '도움말', desc: '도움말'},
       {name: '오케이 구글', desc: '봇 호출'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
-      {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
-      {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
       {name: '서버정보', desc: '서버정보를 보여줍니다!'},
     ];
     let commandStr = '';
